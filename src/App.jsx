@@ -45,7 +45,8 @@ function App() {
         </div>
         <div className="editTodo">
           <h1 className='text-2xl'>Your Todos</h1>
-          <div className="todos">
+          <div className="todos my-5">
+            {todos.length === 0 && <div>No Todos to display</div>}
             {todos.map(item => {
               return <div key={item.id} className="todo flex justify-between my-3 place-items-center bg-zinc-600 rounded-md px-5 py-3">
                 <input onChange={handleCheckBox} type="checkbox" value={item.isCompleted} name={item.id} id="" />
