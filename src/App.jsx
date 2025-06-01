@@ -27,7 +27,12 @@ function App() {
   }
   
   const handleEdit = () => { }
-  const handleDelete = () => { }
+  const handleDelete = (e, id) => {
+    let newTodos = todos.filter(item=>{
+      return item.id!==id
+    })
+    settodos(newTodos)
+  }
 
   return (
     <>
@@ -35,7 +40,7 @@ function App() {
       <div className="container mx-auto my-5 p-5 bg-zinc-800 rounded-md min-h-[80vh]">
         <div className="addTodo my-5">
           <h1 className="text-2xl">Add a ToDo</h1>
-          <input onChange={handleChange} value={todo} type="text" className='bg-zinc-600 w-1/2 py-2 px-3 rounded-md border-none outline-none' />
+          <input onChange={handleChange} value={todo} type="text" className='bg-zinc-600 w-2/3 py-2 px-3 rounded-md border-none outline-none' />
           <button onClick={handleAdd} className='bg-blue-500 hover:bg-blue-600 py-2 px-5 mx-4 rounded-md cursor-pointer transition-all'>Add</button>
         </div>
         <div className="editTodo">
@@ -47,7 +52,7 @@ function App() {
                 <div className={item.isCompleted?"line-through":""}>{item.todo}</div>
                 <div className="buttons flex gap-5">
                   <button onClick={handleEdit} className='bg-yellow-500 hover:bg-yellow-600 transition-all px-3 py-2 rounded-md cursor-pointer'>Edit</button>
-                  <button onClick={handleDelete} className='bg-red-500 hover:bg-red-600 transition-all px-3 py-2 rounded-md cursor-pointer'>Delete</button>
+                  <button onClick={(e)=>{handleDelete(e, item.id)}} className='bg-red-500 hover:bg-red-600 transition-all px-3 py-2 rounded-md cursor-pointer'>Delete</button>
                 </div>
               </div>
             })}
