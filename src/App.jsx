@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar'
 import { useState, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import { MdModeEdit, MdDeleteForever } from "react-icons/md";
 
 function App() {
 
@@ -86,8 +87,8 @@ function App() {
                   <div className={item.isCompleted ? "line-through" : ""}>{item.todo}</div>
                 </div>
                 <div className="buttons flex gap-5 h-full">
-                  <button onClick={(e) => handleEdit(e, item.id)} className='bg-yellow-500 hover:bg-yellow-600 transition-all px-3 py-2 rounded-md cursor-pointer'>Edit</button>
-                  <button onClick={(e) => { handleDelete(e, item.id) }} className='bg-red-500 hover:bg-red-600 transition-all px-3 py-2 rounded-md cursor-pointer'>Delete</button>
+                  <button onClick={(e) => handleEdit(e, item.id)} className='bg-yellow-500 hover:bg-yellow-600 transition-all px-3 py-2 rounded-md cursor-pointer flex place-items-center gap-1'>Edit <MdModeEdit /></button>
+                  <button onClick={(e) => { handleDelete(e, item.id) }} className='bg-red-500 hover:bg-red-600 transition-all px-3 py-2 rounded-md cursor-pointer flex place-items-center gap-1'>Delete <MdDeleteForever /></button>
                 </div>
               </div>
             })}
