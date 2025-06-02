@@ -24,12 +24,11 @@ function App() {
   const toggleFinished = (e) => {
     setshowFinished(!showFinished)
   }
-  
+
 
   const handleAdd = () => {
     settodos([...todos, { id: uuidv4(), todo, isCompleted: false }])
     settodo("")
-    console.log(todos);
     saveToLS()
   }
 
@@ -73,9 +72,9 @@ function App() {
         <div className="addTodo my-5">
           <h1 className="text-2xl">Add a ToDo</h1>
           <input onChange={handleChange} value={todo} type="text" className='bg-zinc-600 w-2/3 py-2 px-3 rounded-md border-none outline-none' />
-          <button onClick={handleAdd} disabled={todo.length<3} className='bg-blue-500 hover:bg-blue-600 py-2 px-5 mx-4 rounded-md disabled:bg-blue-400 cursor-pointer transition-all'>Add</button>
+          <button onClick={handleAdd} disabled={todo.length < 3} className='bg-blue-500 hover:bg-blue-600 py-2 px-5 mx-4 rounded-md disabled:bg-blue-400 cursor-pointer transition-all'>Add</button>
         </div>
-        <input onChange={toggleFinished} type="checkbox" className='my-5 mx-1' value={setshowFinished}/> Show finished todos
+        <input onChange={toggleFinished} type="checkbox" className='my-5 mx-1' checked={showFinished} /> Show finished todos
         <div className="editTodo">
           <h1 className='text-2xl'>Your Todos</h1>
           <div className="todos my-5">
