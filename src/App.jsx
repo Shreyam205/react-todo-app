@@ -69,6 +69,7 @@ function App() {
     <>
       <Navbar />
       <div className="container mx-auto my-5 p-5 bg-zinc-800 rounded-md min-h-[80vh]">
+         <h1 className='font-bold text-center text-3xl'>Manage your todos at one place</h1>
         <div className="addTodo my-5">
           <h1 className="text-2xl">Add a ToDo</h1>
           <input onChange={handleChange} value={todo} type="text" className='bg-zinc-600 w-2/3 py-2 px-3 rounded-md border-none outline-none' />
